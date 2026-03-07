@@ -1,0 +1,318 @@
+<?xml version="1.0" ?>
+<robot name="kaybot10" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find kaybot10)/urdf/materials.xacro" />
+<xacro:include filename="$(find kaybot10)/urdf/kaybot10.trans" />
+<xacro:include filename="$(find kaybot10)/urdf/kaybot10.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="3.140088934331665e-05 0.010194159191315486 0.010173570952179724" rpy="0 0 0"/>
+    <mass value="1.649348157294341"/>
+    <inertia ixx="0.001319" iyy="0.002065" izz="0.001479" ixy="-1e-06" iyz="-4e-06" ixz="0.000201"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lt_pelvis_1">
+  <inertial>
+    <origin xyz="0.03767602809433948 0.028926258572985135 0.019179539986440487" rpy="0 0 0"/>
+    <mass value="0.7785969063923761"/>
+    <inertia ixx="0.000416" iyy="0.000275" izz="0.000399" ixy="-5e-06" iyz="0.0" ixz="-2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.034028 0.013748 -0.007004" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_pelvis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.034028 0.013748 -0.007004" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_pelvis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lt_hip_1">
+  <inertial>
+    <origin xyz="0.0005736858221648405 0.014325230602613094 -0.024436695057386784" rpy="0 0 0"/>
+    <mass value="0.7779981409617496"/>
+    <inertia ixx="0.000345" iyy="0.000217" izz="0.000382" ixy="1e-06" iyz="9e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.074028 -2e-06 -0.004504" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_hip_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.074028 -2e-06 -0.004504" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_hip_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lt_thigh_1">
+  <inertial>
+    <origin xyz="-0.041003347773027166 -0.0013334269775511095 -0.12953470296267605" rpy="0 0 0"/>
+    <mass value="0.7202675226044857"/>
+    <inertia ixx="0.002544" iyy="0.002606" izz="0.000386" ixy="-8e-06" iyz="-1.9e-05" ixz="-0.000355"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.098528 -2e-06 0.021746" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_thigh_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.098528 -2e-06 0.021746" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_thigh_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lt_shin_1">
+  <inertial>
+    <origin xyz="-0.070507 -2e-06 0.20375" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.070507 -2e-06 0.20375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_shin_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.070507 -2e-06 0.20375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_shin_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lt_foot_1">
+  <inertial>
+    <origin xyz="-0.01657075633903557 -0.026580001589888803 -0.023131878616310497" rpy="0 0 0"/>
+    <mass value="0.39908822855927323"/>
+    <inertia ixx="0.000692" iyy="0.000155" izz="0.000753" ixy="2e-05" iyz="-2.9e-05" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.070598 9e-06 0.378765" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.070598 9e-06 0.378765" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/lt_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rt_pelvis_1">
+  <inertial>
+    <origin xyz="-0.03767603733831762 0.02892625977903276 0.019179545789006117" rpy="0 0 0"/>
+    <mass value="0.7785966575822303"/>
+    <inertia ixx="0.000416" iyy="0.000275" izz="0.000399" ixy="5e-06" iyz="0.0" ixz="2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034028 0.013748 -0.007004" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_pelvis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034028 0.013748 -0.007004" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_pelvis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rt_hip_1">
+  <inertial>
+    <origin xyz="-0.0005699203775652167 0.014516833705083 -0.024447344207404655" rpy="0 0 0"/>
+    <mass value="0.7827072740919705"/>
+    <inertia ixx="0.000349" iyy="0.000218" izz="0.000387" ixy="-1e-06" iyz="9e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.074028 -2e-06 -0.004504" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_hip_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.074028 -2e-06 -0.004504" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_hip_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rt_thigh_1">
+  <inertial>
+    <origin xyz="0.041003347772133575 -0.001333426967637988 -0.12953470295495628" rpy="0 0 0"/>
+    <mass value="0.720267522768661"/>
+    <inertia ixx="0.002544" iyy="0.002606" izz="0.000386" ixy="8e-06" iyz="-1.9e-05" ixz="0.000355"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.098528 -2e-06 0.021746" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_thigh_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.098528 -2e-06 0.021746" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_thigh_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rt_shin_1">
+  <inertial>
+    <origin xyz="0.070507 -2e-06 0.20375" rpy="0 0 0"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.070507 -2e-06 0.20375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_shin_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.070507 -2e-06 0.20375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_shin_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rt_foot_1">
+  <inertial>
+    <origin xyz="0.016570756635077774 -0.026580001408635853 -0.02313187862593763" rpy="0 0 0"/>
+    <mass value="0.39908823361834167"/>
+    <inertia ixx="0.000692" iyy="0.000155" izz="0.000753" ixy="-2e-05" iyz="-2.9e-05" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.070598 9e-06 0.378765" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.070598 9e-06 0.378765" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://kaybot10/meshes/rt_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="lt_abd" type="revolute">
+  <origin xyz="0.034028 -0.013748 0.007004" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lt_pelvis_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <limit upper="0.261799" lower="-0.261799" effort="100" velocity="100"/>
+</joint>
+
+<joint name="lt_rot" type="revolute">
+  <origin xyz="0.04 0.01375 -0.0025" rpy="0 0 0"/>
+  <parent link="lt_pelvis_1"/>
+  <child link="lt_hip_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <limit upper="0.261799" lower="-0.087266" effort="100" velocity="100"/>
+</joint>
+
+<joint name="lt_flex" type="revolute">
+  <origin xyz="0.0245 0.0 -0.02625" rpy="0 0 0"/>
+  <parent link="lt_hip_1"/>
+  <child link="lt_thigh_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <limit upper="1.22173" lower="-0.523599" effort="100" velocity="100"/>
+</joint>
+
+<joint name="lt_knee" type="revolute">
+  <origin xyz="-0.028021 0.0 -0.182004" rpy="0 0 0"/>
+  <parent link="lt_thigh_1"/>
+  <child link="lt_shin_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <limit upper="0.0" lower="-1.919862" effort="100" velocity="100"/>
+</joint>
+
+<joint name="lt_ankle" type="revolute">
+  <origin xyz="9.1e-05 -1.1e-05 -0.175015" rpy="0 0 0"/>
+  <parent link="lt_shin_1"/>
+  <child link="lt_foot_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <limit upper="0.523599" lower="-0.261799" effort="100" velocity="100"/>
+</joint>
+
+<joint name="rt_abd" type="revolute">
+  <origin xyz="-0.034028 -0.013748 0.007004" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rt_pelvis_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <limit upper="0.261799" lower="-0.261799" effort="100" velocity="100"/>
+</joint>
+
+<joint name="rt_rot" type="revolute">
+  <origin xyz="-0.04 0.01375 -0.0025" rpy="0 0 0"/>
+  <parent link="rt_pelvis_1"/>
+  <child link="rt_hip_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+  <limit upper="0.261799" lower="-0.087266" effort="100" velocity="100"/>
+</joint>
+
+<joint name="rt_flex" type="revolute">
+  <origin xyz="-0.0245 0.0 -0.02625" rpy="0 0 0"/>
+  <parent link="rt_hip_1"/>
+  <child link="rt_thigh_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit upper="1.22173" lower="-0.523599" effort="100" velocity="100"/>
+</joint>
+
+<joint name="rt_knee" type="revolute">
+  <origin xyz="0.028021 0.0 -0.182004" rpy="0 0 0"/>
+  <parent link="rt_thigh_1"/>
+  <child link="rt_shin_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit upper="0.0" lower="-1.919862" effort="100" velocity="100"/>
+</joint>
+
+<joint name="rt_ankle" type="revolute">
+  <origin xyz="-9.1e-05 -1.1e-05 -0.175015" rpy="0 0 0"/>
+  <parent link="rt_shin_1"/>
+  <child link="rt_foot_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+  <limit upper="0.523599" lower="-0.261799" effort="100" velocity="100"/>
+</joint>
+
+</robot>
