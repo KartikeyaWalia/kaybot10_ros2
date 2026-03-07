@@ -91,8 +91,8 @@
 <link name="lt_shin_1">
   <inertial>
     <origin xyz="-0.070507 -2e-06 0.20375" rpy="0 0 0"/>
-    <mass value="0.0"/>
-    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <mass value="0.65"/>
+    <inertia ixx="0.002506" iyy="0.002508" izz="0.000254" ixy="-4e-07" iyz="0.000112" ixz="9e-06"/>
   </inertial>
   <visual>
     <origin xyz="-0.070507 -2e-06 0.20375" rpy="0 0 0"/>
@@ -196,8 +196,8 @@
 <link name="rt_shin_1">
   <inertial>
     <origin xyz="0.070507 -2e-06 0.20375" rpy="0 0 0"/>
-    <mass value="0.0"/>
-    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <mass value="0.65"/>
+    <inertia ixx="0.002506" iyy="0.002508" izz="0.000254" ixy="4e-07" iyz="0.000112" ixz="-9e-06"/>
   </inertial>
   <visual>
     <origin xyz="0.070507 -2e-06 0.20375" rpy="0 0 0"/>
@@ -314,5 +314,71 @@
   <axis xyz="1.0 -0.0 0.0"/>
   <limit upper="0.523599" lower="-0.261799" effort="100" velocity="100"/>
 </joint>
+
+<ros2_control name="GazeboSimSystem" type="system">
+  <hardware>
+    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+  </hardware>
+
+  <joint name="lt_abd">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  <joint name="lt_rot">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  <joint name="lt_flex">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  <joint name="lt_knee">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  <joint name="lt_ankle">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="rt_abd">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  <joint name="rt_rot">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  <joint name="rt_flex">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  <joint name="rt_knee">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+  <joint name="rt_ankle">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+</ros2_control>
+
+<gazebo>
+  <plugin
+    filename="gz_ros2_control-system"
+    name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+    <parameters>$(find kaybot10)/config/kaybot10_controllers.yaml</parameters>    
+  </plugin>
+</gazebo>
 
 </robot>
