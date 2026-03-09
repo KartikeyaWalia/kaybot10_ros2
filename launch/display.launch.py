@@ -23,18 +23,18 @@ def generate_launch_description():
             parameters=[{'robot_description': robot_description_raw}]
         ),
         # Starts the GUI with sliders for your 10 joints
-        Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui'
-        ),
+        #Node(
+        #    package='joint_state_publisher_gui',
+        #    executable='joint_state_publisher_gui',
+        #    name='joint_state_publisher_gui'
+        #),
         # Opens RViz
         Node(
             package='rviz2',
             executable='rviz2',
             name='rviz2',
             output='screen',
-            arguments=['-d', os.path.join(get_package_share_directory('kaybot10'), 'rviz', 'display.rviz')]
+            arguments=['-d', os.path.join(get_package_share_directory('kaybot10'), 'config', 'display.rviz')]
         )
     ])
 

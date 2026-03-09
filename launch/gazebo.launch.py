@@ -40,9 +40,21 @@ def generate_launch_description():
         executable="spawner",
         arguments=["leg_controller"], # This name must match the YAML
     )
+    
+    # Updated Bridge for Clock AND IMU
+    bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+            '/imu@sensor_msgs/msg/Imu[gz.msgs.IMU'
+        ],
+        output='screen'
+    )
 
     return LaunchDescription([
         gazebo_sim,
+        bridge,
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
@@ -53,7 +65,6 @@ def generate_launch_description():
         leg_controller_spawner,
     ])
     
-    
-    
 
+    
    
