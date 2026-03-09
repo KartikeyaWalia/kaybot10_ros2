@@ -43,20 +43,19 @@ class KaybotTeleop(Node):
         # Ankle tilts
         pos[9] = right_input * 0.4        # rt_ankle
 
-        # ABDUCTION (Optional: Bumpers L1/R1 for side-to-side)
+        # ABDUCTION 
         # Often Axis 0 and 2 are used for this
         pos[0] = msg.axes[0] * 0.3        # lt_abd
         pos[5] = msg.axes[2] * -0.3       # rt_abd
         
+        
+        # Rotation (Optional: Bumpers LT(4)/RT(5) for side-to-side)
+        # Often Axis 0 and 2 are used for this
+        pos[1] = msg.axes[4] * -0.3        # lt_rot
+        pos[6] = msg.axes[5] * -0.3       # rt_rot
+        
         knee_command = msg.axes[3] * -1.5  # Right stick moves knees
-
-        # Add a safety clamp: 
-        # This prevents the value from ever going above 0.0 (the front)
-        if knee_command > 0.0:
-            knee_command = 0.0
-
-        pos[3] = knee_command # lt_knee
-        pos[8] = knee_command # rt_knee
+        
 
         js.position = pos
         self.publisher.publish(js)
