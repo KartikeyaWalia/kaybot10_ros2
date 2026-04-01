@@ -1,4 +1,4 @@
-#🤖 Kaybot10 Bipedal Robot
+# 🤖 Kaybot10 Bipedal Robot
 
 A 10-DOF bipedal robot simulation built for ROS 2 Jazzy and Gazebo Harmonic. This project features a custom URDF with optimized collision geometry and gamepad teleoperation.
 ##🛠 Installation & Build
@@ -19,16 +19,16 @@ sudo apt install ros-jazzy-joy joystick ros-jazzy-xacro ros-jazzy-ros2-control
 Ensure your workspace is structured as ~/your_ws/src/kaybot10.
 Bash
 
-# Navigate to workspace root
-cd ~/your_ws
+### Navigate to workspace root
+`cd ~/your_ws`
 
-# Build the package
-colcon build --symlink-install --packages-select kaybot10
+### Build the package
+`colcon build --symlink-install --packages-select kaybot10`
 
-# Source the workspace
-source install/setup.bash
+### Source the workspace
+`source install/setup.bash`
 
-🚀 Running the Simulation
+## 🚀 Running the Simulation
 Mode A: Visualization (RViz Only)
 
 Use this mode to check joint axes and URDF limits without physics overhead.
@@ -45,7 +45,7 @@ Bash
 
 ros2 launch kaybot10 gazebo.launch.py
 
-🎮 Gamepad Teleop Setup
+## 🎮 Gamepad Teleop Setup
 
 Control Kaybot10 using a Bluetooth gamepad.
 Step 1: Hardware Verification
