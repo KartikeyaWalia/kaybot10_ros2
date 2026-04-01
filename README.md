@@ -29,46 +29,44 @@ Bash
 `source install/setup.bash`
 
 ## 🚀 Running the Simulation
-Mode A: Visualization (RViz Only)
+
+### Mode A: Visualization (RViz Only)
 
 Use this mode to check joint axes and URDF limits without physics overhead.
 
 Note: This mode uses a custom script to "puppet" the robot.
-Bash
-
-ros2 launch kaybot10 teleop.launch.py
-
-Mode B: Physics (Gazebo)
+`ros2 launch kaybot10 teleop.launch.py
+`
+### Mode B: Physics (Gazebo)
 
 Launch the full physics environment with ROS 2 Control enabled.
-Bash
 
-ros2 launch kaybot10 gazebo.launch.py
+`ros2 launch kaybot10 gazebo.launch.py
+`
 
 ## 🎮 Gamepad Teleop Setup
 
 Control Kaybot10 using a Bluetooth gamepad.
-Step 1: Hardware Verification
+### Step 1: Hardware Verification
 
 Connect your controller via Bluetooth and identify the device index:
-Bash
 
-ls /dev/input/js*
-# Usually /dev/input/js0
+`ls /dev/input/js*
+`
+Usually /dev/input/js0
 
 Test the raw inputs:
-Bash
 
-sudo jstest /dev/input/js0
-
-Step 2: Launch Control Nodes
+`sudo jstest /dev/input/js0
+`
+### Step 2: Launch Control Nodes
 
 In separate terminals, run the driver and the mapping script:
 
-    Joy Driver: ros2 run joy joy_node
+    Joy Driver: `ros2 run joy joy_node`
 
-    Teleop Script: python3 src/kaybot10/scripts/kaybot_teleop.py
-
+    Teleop Script: `python3 src/kaybot10/scripts/kaybot_teleop.py`
+    
     Note: The teleop script uses the Left Stick for the left leg and Right Stick for the right leg, with safety clamping on the knee joints to prevent forward hyperextension.
 
 🧪 Manual Testing & Poses
@@ -76,17 +74,18 @@ In separate terminals, run the driver and the mapping script:
 If you do not have a gamepad, you can send a specific pose directly to the Gazebo controllers via the terminal.
 Send a "Squat/Ready" Pose
 
+`source install/setup.bash
+`
 Run the following command to move all 10 joints to a crouched, stable position:
-Bash
 
-ros2 topic pub --once /leg_controller/joint_trajectory trajectory_msgs/msg/JointTrajectory "{
+`ros2 topic pub --once /leg_controller/joint_trajectory trajectory_msgs/msg/JointTrajectory "{
   header: {stamp: {sec: 0, nanosec: 0}},
   joint_names: ['lt_abd', 'lt_rot', 'lt_flex', 'lt_knee', 'lt_ankle', 'rt_abd', 'rt_rot', 'rt_flex', 'rt_knee', 'rt_ankle'],
   points: [{
     positions: [0.05, 0.05, 0.6, -1.2, 0.4, -0.05, -0.05, 0.6, -1.2, 0.4],
     time_from_start: {sec: 2, nanosec: 0}
   }]
-}"
+}"`
 
 🔍 Troubleshooting
 
